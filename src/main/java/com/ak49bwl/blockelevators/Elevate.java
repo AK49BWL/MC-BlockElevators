@@ -50,7 +50,6 @@ public class Elevate implements Listener {
         Location checkMe;
         for( int searchY = 2; searchY < MAX_ELEV; searchY++ ){ // searchY can't be <2 because it will see the block we're standing on.
             checkMe = from.add( 0, searchY*directionChanger, 0 );
-            Bukkit.getLogger().info("Current player location: " + from.getY() + ", Looking at block " + searchY*directionChanger + ", " + checkMe.getY());
             if( checkMe.getBlock().getType().equals(TRIGGER_TYPE) &&
                 checkMe.getBlock().getRelative(BlockFace.UP, 1).getType().equals(Material.AIR) &&
                 checkMe.getBlock().getRelative(BlockFace.UP, 2).getType().equals(Material.AIR) ){
