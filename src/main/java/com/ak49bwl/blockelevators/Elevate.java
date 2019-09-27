@@ -47,15 +47,12 @@ public class Elevate implements Listener {
         event.getPlayer().teleport(destination);
     }
     private Location getDestination( Location from , int directionChanger ){
-        Location checkMe;
-        for( int searchY = 2; searchY < MAX_ELEV; searchY++ ){ // searchY can't be <2 because it will see the block we're standing on.
-            checkMe = from.add( 0, searchY*directionChanger, 0 );
-            if( checkMe.getBlock().getType().equals(TRIGGER_TYPE) &&
-                checkMe.getBlock().getRelative(BlockFace.UP, 1).getType().equals(Material.AIR) &&
-                checkMe.getBlock().getRelative(BlockFace.UP, 2).getType().equals(Material.AIR) ){
-                return checkMe.add(0,1,0); //checkMe is the Trigger, return the spot immediately above it
-            } else {
-                from.subtract( 0, searchY*directionChanger, 0 );
+        for( int searchY = 2; searchY < MAX_ELEV; searchY++ ){ // searchY can't be < 2 because it will see the block we're standing on.
+            Block checkMe = from.getBlock().getRelative( 0, searchY*directionChanger, 0 );
+            if( checkMe.getType().equals(TRIGGER_TYPE) &&
+                checkMe.getRelative(BlockFace.UP, 1).getType().equals(Material.AIR) &&
+                checkMe.getRelative(BlockFace.UP, 2).getType().equals(Material.AIR) ){
+                return from.add( 0, searchY*directionChanger +1, 0 ); //checkMe is the Trigger, return the spot immediately above it
             }
         }
         return null;
