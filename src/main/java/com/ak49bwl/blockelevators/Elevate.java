@@ -54,7 +54,9 @@ public class Elevate implements Listener {
                 checkMe.getBlock().getRelative(BlockFace.UP, 1).getType().equals(Material.AIR) &&
                 checkMe.getBlock().getRelative(BlockFace.UP, 2).getType().equals(Material.AIR) ){
                 return checkMe.add(0,1,0); //checkMe is the Trigger, return the spot immediately above it
-            } else from.subtract( 0, searchY*directionChanger, 0 );
+            } else {
+                from.subtract( 0, searchY*directionChanger, 0 );
+            }
         }
         return null;
     }
