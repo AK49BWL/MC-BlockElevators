@@ -1,7 +1,7 @@
 main: com.ak49bwl.blockelevators.Main
 name: BlockElevators
 api-version: 1.14
-version: 1.1
+version: 1.2
 author: AK49BWL
 description: Block Elevators - Adapted from ScarleTomato's IronElevators
 prefix: BlockElevators
